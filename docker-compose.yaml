@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   web:
+    image: ghcr.io/sandhose/tp-siris-service-discovery/web
     build:
       context: .
       target: web
@@ -14,6 +15,7 @@ services:
       - "8080:8080"
 
   worker:
+    image: ghcr.io/sandhose/tp-siris-service-discovery/worker
     build:
       context: .
       target: worker
