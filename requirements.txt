@@ -1,0 +1,14 @@
+Flask==2.0.3
+celery[redis]==5.2.3
+requests==2.27.1
+beautifulsoup4==4.10.0
+
+opentelemetry-sdk
+opentelemetry-api
+opentelemetry-exporter-jaeger
+opentelemetry-exporter-otlp
+opentelemetry-instrumentation
+opentelemetry-instrumentation-celery
+opentelemetry-instrumentation-flask
+opentelemetry-instrumentation-requests
+opentelemetry-instrumentation-jinja2

@@ -1,0 +1,10 @@
+{
+  "name": "app",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -m -o static/style.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
