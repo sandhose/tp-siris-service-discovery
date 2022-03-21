@@ -68,7 +68,8 @@
 
       // Show the results in the output box
       const data = await res.json();
-      output.value = data.result.join("\n");
+      const titles = data.result.map(item => item.title);
+      output.value = titles.join("\n");
     });
   </script>
 </body>
