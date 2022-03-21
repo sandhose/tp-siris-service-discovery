@@ -51,6 +51,12 @@ jobs:
         run: |
             jq -s '.[0] * .[1]' ${{ steps.meta-web.outputs.bake-file }} ${{ steps.meta-worker.outputs.bake-file }} > docker-bake.override.json
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+        with:
+          image: tonistiigi/binfmt:latest
+          platforms: arm64
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
         with:
