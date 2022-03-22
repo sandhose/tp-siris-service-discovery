@@ -18,8 +18,8 @@ Docker images are automatically built by GitHub Actions and published here:
 
 ### Interesting bits of codes
 
- - The web server: <./app.py>
- - The worker: <./tasks.py>
- - The HTML page template: <./templates/index.html>
- - The Dockerfile building both images: <./Dockerfile>
- - The *docker-compose* stack: <./docker-compose.yaml>
+ - The web server: [`app.py`](./app.py)
+ - The worker: [`tasks.py`](./tasks.py)
+ - The HTML page template: [`templates/index.html`](./templates/index.html)
+ - The Dockerfile building both images: [`Dockerfile`](./Dockerfile)
+ - The *docker-compose* stack: [`docker-compose.yaml`](./docker-compose.yaml)
