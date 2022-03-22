@@ -16,10 +16,11 @@ Docker images are automatically built by GitHub Actions and published here:
  - [ghcr.io/sandhose/tp-siris-service-discovery/web:latest](https://github.com/sandhose/tp-siris-service-discovery/pkgs/container/tp-siris-service-discovery%2Fweb) for the web server
  - [ghcr.io/sandhose/tp-siris-service-discovery/worker:latest](https://github.com/sandhose/tp-siris-service-discovery/pkgs/container/tp-siris-service-discovery%2Fworker) for the worker
 
-### Interesting bits of codes
+### Interesting bits of code
 
  - The web server: [`app.py`](./app.py)
  - The worker: [`tasks.py`](./tasks.py)
  - The HTML page template: [`templates/index.html`](./templates/index.html)
+ - The configuration file, which reads environment variables: [`config.py`](./config.py) 
  - The Dockerfile building both images: [`Dockerfile`](./Dockerfile)
  - The *docker-compose* stack: [`docker-compose.yaml`](./docker-compose.yaml)
