@@ -1,5 +1,5 @@
 ## Build the frontend assets
-FROM --platform=${BUILDARCH} docker.io/library/node:16-slim AS frontend
+FROM --platform=${BUILDARCH} docker.io/library/node:18-slim AS frontend
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ RUN npm run build
 
 
 ## Common stage
-FROM docker.io/library/python:3.10-slim AS app
+FROM docker.io/library/python:3.11 AS app
 
 ARG TARGETARCH
 
@@ -47,7 +47,7 @@ USER 65534:65534
 FROM app AS web
 
 # Use waitress as WSGI server
-RUN pip install waitress==2.1.1
+RUN pip install waitress==2.1.2
 
 # Get the built static assets from the frontend stage
 COPY --from=frontend /app/static /app/static

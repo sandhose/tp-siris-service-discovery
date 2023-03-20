@@ -5,6 +5,6 @@
     "build": "tailwindcss -m -o static/style.css"
   },
   "dependencies": {
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.2.7"
   }
 }
