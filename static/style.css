@@ -1,0 +1,118 @@
+:root {
+    --font-mono:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    --font-sans:
+        ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --color-slate-50: #f8fafc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1e293b;
+    --color-slate-900: #0f172a;
+    --color-slate-950: #020617;
+}
+
+html,
+body {
+    font-family: var(--font-sans);
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    min-height: 100svh;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 0 1 16rem;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+}
+
+h1 {
+    margin: 0;
+    color: var(--color-slate-700);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0.5rem 0 0;
+    color: var(--color-slate-700);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.served-by {
+    margin: 0;
+    color: var(--color-slate-700);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--color-slate-700);
+    border-radius: 0.25rem;
+    resize: vertical;
+    font-family: var(--font-mono);
+    box-shadow: 0 2px 1px var(--color-slate-300);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--color-slate-900);
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-slate-700);
+    border-radius: 0.25rem;
+    background-color: var(--color-slate-700);
+    color: var(--color-slate-100);
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+    border-color: var(--color-slate-900);
+    background-color: var(--color-slate-600);
+}
+
+button:hover {
+    border-color: var(--color-slate-600);
+    background-color: var(--color-slate-600);
+}
+
+output {
+    display: block;
+    padding: 0.5rem;
+    border: 1px solid var(--color-slate-500);
+    border-radius: 0.25rem;
+    white-space: pre-wrap;
+    font-family: var(--font-mono);
+    box-shadow: 0 2px 1px var(--color-slate-300);
+}

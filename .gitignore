@@ -1,4 +1,4 @@
 .env
+.venv/
 node_modules/
-static/
 __pycache__/

@@ -1,20 +1,5 @@
-## Build the frontend assets
-FROM --platform=${BUILDARCH} docker.io/library/node:18-slim AS frontend
-
-WORKDIR /app
-
-# Install the frontend dependencies
-COPY package.json package-lock.json /app/
-RUN npm ci
-
-# Build the frontend assets
-COPY tailwind.config.js /app/tailwind.config.js
-COPY templates/ /app/templates/
-RUN npm run build
-
-
 ## Common stage
-FROM docker.io/library/python:3.11 AS app
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm AS app
 
 ARG TARGETARCH
 
@@ -27,32 +12,22 @@ ENTRYPOINT ["/tini", "--"]
 
 WORKDIR /app
 
-# Install the dependencies
-COPY requirements.txt /app/requirements.txt
-RUN pip install -Ur requirements.txt
-
-# Copy the rest of the code
+# Install app
 COPY . /app/
-
+RUN uv sync
 
 ## Worker stage
 FROM app AS worker
 
 ENV OTEL_SERVICE_NAME=worker
-CMD ["opentelemetry-instrument", "celery", "-A", "tasks.app", "worker", "-E"]
-USER 65534:65534
-
+CMD uv run opentelemetry-instrument celery -A tasks.app worker -E
 
 ## Web stage
 FROM app AS web
 
 # Use waitress as WSGI server
-RUN pip install waitress==2.1.2
-
-# Get the built static assets from the frontend stage
-COPY --from=frontend /app/static /app/static
+RUN uv pip install waitress==3.0.2
 
 ENV OTEL_SERVICE_NAME=web
-CMD ["opentelemetry-instrument", "waitress-serve", "--call", "app:create_app"]
-USER 65534:65534
+CMD uv run opentelemetry-instrument waitress-serve --call app:create_app
 EXPOSE 8080

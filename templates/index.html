@@ -9,31 +9,22 @@
 </head>
 
 <body>
-  <div class="flex h-screen container mx-auto">
-    <div class="w-64 m-4 flex flex-col">
-      <h1 class="text-3xl font-bold text-slate-700 my-2">
-        URL crawler
-      </h1>
-
-      <p>Served by {{ hostname }}</p>
-
-      <textarea class="border border-slate-700 rounded font-mono resize-none p-2 my-2" rows="10"
-        autofocus>https://google.com/&#10;https://facebook.com/</textarea>
-
-      <button
-        class="text-slate-100 bg-slate-700 border-2 border-slate-700 focus:border-slate-900 focus:bg-slate-600 hover:bg-slate-600 hover:border-slate-600 rounded my-2 p-2">
-        Submit
-      </button>
+  <main>
+    <div class="control">
+      <h1>URL crawler</h1>
+      <textarea rows="10" autofocus>https://google.com/&#10;https://facebook.com/</textarea>
+      <button>Submit</button>
+      <div class="served-by">Served by {{ hostname }}</div>
     </div>
 
-    <div class="flex-1 m-4 flex flex-col">
-      <h2 class="text-xl font-bold text-slate-700 my-2">Results</h2>
+    <div class="results">
+      <h2>Results</h2>
 
-      <output class="border border-slate-700 rounded block font-mono p-2 my-2 font-mono whitespace-pre-wrap">
+      <output>
 
       </output>
     </div>
-  </div>
+  </main>
 
   <script>
     const btn = document.querySelector("button");

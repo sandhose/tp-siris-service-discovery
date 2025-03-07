@@ -1,0 +1,21 @@
+[project]
+name = "tp-siris-service-discovery"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    "Flask",
+    "celery[redis]",
+    "requests",
+    "beautifulsoup4",
+    "opentelemetry-sdk",
+    "opentelemetry-api",
+    "opentelemetry-exporter-jaeger",
+    "opentelemetry-exporter-otlp",
+    "opentelemetry-instrumentation",
+    "opentelemetry-instrumentation-celery",
+    "opentelemetry-instrumentation-flask",
+    "opentelemetry-instrumentation-requests",
+    "opentelemetry-instrumentation-jinja2",
+]
